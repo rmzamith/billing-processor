@@ -1,0 +1,39 @@
+<mat-card>
+  <form [formGroup]="billingForm" (submit)="onProcessBilling()">
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        name="csvPath"
+        placeholder="CSV File Path"
+        ngModel
+        required>
+        <mat-error *ngIf="billingForm.get('csvPath').invalid">Please enter a post CSV file path.</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        name="templateUrl"
+        placeholder="Template File URL"
+        ngModel
+        required>
+        <mat-error *ngIf="billingForm.get('templateUrl').invalid">Please enter a post CSV file path.</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        name="outputFile"
+        placeholder="Output File Name"
+        ngModel
+        required>
+        <mat-error *ngIf="billingForm.get('outputFile').invalid">Please enter a valid output file name.</mat-error>
+    </mat-form-field>
+    <button
+      mat-raised-button
+      color="accent"
+      type="submit">Process Billing</button>
+  </form>
+</mat-card>
+
